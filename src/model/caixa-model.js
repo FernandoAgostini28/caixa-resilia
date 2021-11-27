@@ -1,18 +1,25 @@
 //var id = 0
 
 class Pagamento {
-    constructor(nome, email, senha, ) {
-        this.id  = id++
-        this.nome= nome
-        this.email = email
-        this.senha = this.vereficaSenha(senha)
+
+    constructor(pedido, valor) {
+        this.pedido = this.verificapedido(pedido)
+        this.valor = this.vereficaValor(valor)
     }
 
-    vereficaSenha(senha){
-        if(senha.length <= 6 ){
-            return senha
+    vereficaValor(valor){
+        if(valor !== "" ){
+            return valor
         }else {
-            console.log('erro')
+            console.log('erro valor')
+        }
+    }
+
+    verificapedido(pedido){
+        if(pedido !== "" ){
+            return pedido
+        }else {
+            console.log('erro pedido')
         }
     }
 }
