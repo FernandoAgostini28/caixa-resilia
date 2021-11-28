@@ -1,15 +1,9 @@
 const Pagamento = require('../model/caixa-model.js')
+const CaixaDAO = require('../DAO/caixa-DAO')
 
 const caixa = (app, bdCaixa) => {
     app.get('/caixa', (req, res) => {
-        bdCaixa.all('SELECT * FROM CAIXA', (err, linhas) => {
-            if (err) {
-                res.json({ "menssagem": err.message, "erro": true })
-            } else {
-                res.json({ "caixa": linhas, "count": linhas.legth, "erro": false })
-            }
-        })
-
+        res.status(200).json(await CaixaDAO.selectPedidos(bdCaixa))
     })
 
     app.get('/caixa/:pedido', (req, res) => {

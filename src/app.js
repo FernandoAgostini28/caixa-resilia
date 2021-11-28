@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const caixa  = require('./controller/caixa-controller')
+const caixa  = require('./controllers/caixa-controller')
 const bdCaixa = require('./infra/sqlite-db');
 // Para acessar middleware para uma rota exata
 // app.use('/user/:id', function (req, res, next) {
