@@ -1,8 +1,11 @@
 class CaixaDAO {
-
-    slectCaixa() {
+        constructor(bdCaixa){
+            this._bdCaixa=bdCaixa
+        
+    }
+    select_caixa() {
         return new Promise((resolve, reject) => {
-            pedidosDb.all('SELECT * FROM CAIXA', (err, rows) => {
+            this._bdCaixa.all('SELECT * FROM CAIXA', (err, rows) => {
                 if (err) {
                     reject(({ "mensagem": err.message, "error": true }))
                 } else {
@@ -18,3 +21,5 @@ class CaixaDAO {
     }
    
 }
+
+module.exports = CaixaDAO
