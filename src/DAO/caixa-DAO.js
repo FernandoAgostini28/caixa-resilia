@@ -56,16 +56,13 @@ class CaixaDAO {
             })
         })
     }
-
-    update_caixa_pedido(pedido , atulizaPagamento) {
+remove_caixa_pedido(id) {
         return new Promise((resolve, reject) => {
             this._bdCaixa.run(`
-           UPDATE CAIXA 
-            SET (PEDIDO, VALOR) =
-           (?, ?)
-           where PEDIDO =
-           ${pedido}
-            `, [atulizaPagamento.pedido, atulizaPagamento.valor], (error) => {
+            DELETE FROM CAIXA 
+           where ID =
+           ${id}
+            `, (error) => {
                 if (error) {
                     reject({
                         "pagemento": error.message,
@@ -73,7 +70,8 @@ class CaixaDAO {
                     })
                 } else {
                     resolve({
-                        "pagamento": atulizaPagamento,
+                        "id": id,
+                        "message": "removido com sucesso!",
                         "erro": false
                     })
                 }
