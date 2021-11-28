@@ -7,10 +7,10 @@ const  caixa = (app, bdCaixa) => {
         try{
             const respCaixa = await  caixa_Dao.select_caixa();
             res.status(200).json(respCaixa)
-        }catch {
-
+        }catch (error) {
+            res.status(404).json({ error })
         }
-        res.status(200).json(await caixa_Dao.selectCaixa(bdCaixa))
+        //res.status(200).json(await caixa_Dao.selectCaixa(bdCaixa))
     })
 
     // app.get('/caixa/:pedido', (req, res) => {
@@ -25,8 +25,27 @@ const  caixa = (app, bdCaixa) => {
 
     // })
 
-    // app.post('/caixa', (req, res) => {
-    //     const body = req.body
+    app.get('/caixa/:pedido', async (req, res) => {
+        try{
+            const pedido = req.params.pedido
+            const respCaixaPedido = await caixa_Dao.select_caixa_pedido(pedido);
+            res.status(200).json(respCaixaPedido)
+        }catch(error) {
+            res.status(404).json({ error })
+        }
+        //res.status(200).json(await caixa_Dao.selectCaixa(bdCaixa))
+    })
+
+    app.post('/caixa', async (req, res) => {
+       const body = req.body
+       try{
+        const pedido = req.params.pedido
+        const novoPagamento =   new Pagamento(body.PEDIDO, body.VALOR)
+        const respNovoPedido = await caixa_Dao.insert_caixa_pedido(novoPagamento);
+        res.status(200).json(respNovoPedido)
+    }catch(error) {
+        res.status(404).json({ error })
+    }
     //     console.log(body)
     //     const novoPagamento = new Pagamento(body.PEDIDO, body.VALOR)
     //     //console.log(novoPagamento)
@@ -43,7 +62,7 @@ const  caixa = (app, bdCaixa) => {
     //       }
     //     })
        
-    //   })
+    })
 
 } 
 
