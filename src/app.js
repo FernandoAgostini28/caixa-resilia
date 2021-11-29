@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const caixa  = require('./controllers/caixa-controller')
 const bdCaixa = require('./infra/sqlite-db');
 // Para acessar middleware para uma rota exata
@@ -8,7 +9,7 @@ const bdCaixa = require('./infra/sqlite-db');
 //   next();
 // });
 
-
+app.use(cors());
 app.use(express.json())
 app.use((req, res, next) => {
 const body = req.body
