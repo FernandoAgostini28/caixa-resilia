@@ -1,25 +1,25 @@
-//var id = 0
 
 class Pagamento {
-
+    
     constructor(pedido, valor) {
-        this.pedido = this.verificapedido(pedido)
-        this.valor = this.vereficaValor(valor)
+        this.pedido = this.verificaPedido(pedido)
+        this.valor = this.verificaValor(valor)
     }
 
-    vereficaValor(valor){
-        if(valor !== "" ){
+    verificaValor(valor){
+        if(valor >= 0  || valor !== ''){
             return valor
         }else {
-            console.log('erro valor')
+            return -1  
+          
         }
     }
 
-    verificapedido(pedido){
+    verificaPedido(pedido){
         if(pedido !== "" ){
             return pedido
         }else {
-            console.log('erro pedido')
+          return 0
         }
     }
 }
