@@ -31,7 +31,7 @@ POST http://localhost:3003/caixa
 ### Atualiza a nota
 PUT http://localhost:3003/caixa/<"pedido">
 ### Deleta uma nota
-DELETE http://localhost:3003/caixa/<id>
+DELETE http://localhost:3003/caixa/<'id'>
   
 
  
