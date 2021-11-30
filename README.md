@@ -22,14 +22,16 @@ npm run server
 caminho hattp://localhost:3000
 
 ## Rotas possiveis
-### Buscar todas as notas
+### Busca todas as notas
 GET  http://localhost:3003/caixa
-### Buscar por notas pelo pedido
+### Buscar a nota pelo pedido
 GET http://localhost:3003/caixa/<"pedido">
-### Criar uma nota
+### Cria uma nota
 POST http://localhost:3003/caixa
-### Atualizar nota
+### Atualiza a nota
 PUT http://localhost:3003/caixa/<"pedido">
+### Deleta uma nota
+DELETE http://localhost:3003/caixa/<id>
   
 
  
