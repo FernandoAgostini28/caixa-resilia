@@ -81,7 +81,7 @@ class CaixaDAO {
             UPDATE  CAIXA SET (PEDIDO, VALOR) =
            (?, ?)
             where PEDIDO =
-           ${pedido}
+           "${pedido}"
             `, [novoPagamento.pedido, novoPagamento.valor], (error) => {
                 if (error) {
                     reject({
