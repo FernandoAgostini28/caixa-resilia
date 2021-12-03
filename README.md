@@ -1,7 +1,7 @@
 #  Stack Pub
 ## API REST para Caixa
 
-## Vc vai precisar 
+## Necessário 
 Editor de Texto,
 Node js,
 Express,
@@ -19,7 +19,7 @@ npm install
 
 ## Comando para inicializar o servidor 
 npm run serve
-caminho hattp://localhost:3000
+caminho http://localhost:3003
 
 ## Rotas possiveis
 ### Busca todas as notas
